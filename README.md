@@ -1,8 +1,7 @@
 # Spiritual Platform · Galaxy Graph
 
-> **Interactive deploy URL:** _pending — Vercel auth blocked_  
-> Unblock: approve https://vercel.com/oauth/device?user_code=GBZF-NSJK **or** set `VERCEL_TOKEN`, then `npx vercel --yes`.  
-> (Default `*.vercel.app` only — no custom domain.)
+> **Interactive deploy URL (headline):** https://bensheridanedwards.github.io/spiritual-platform-galaxy-graph/  
+> Host: GitHub Pages (`gh-pages`) — default platform URL, no custom domain. Vercel `*.vercel.app` still optional once `VERCEL_TOKEN` is available.
 
 Verse Network Galaxy Graph product line for **Spiritual Platform**. Interactive 3D architecture + mutation-coverage map (React + Three.js / `3d-force-graph`).
 
