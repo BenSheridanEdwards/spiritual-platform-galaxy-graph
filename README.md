@@ -4,7 +4,7 @@ https://bensheridanedwards.github.io/spiritual-platform-galaxy-graph/
 
 Interactive 3D architecture + mutation-coverage map for **Spiritual Platform** (React + Three.js / `3d-force-graph`). Hosted on GitHub Pages (`gh-pages`).
 
-Public-safe sample catalog (identity / billing / notifications). No backend secrets.
+Default dataset is the **full extracted Spiritual Platform / Verse Network graph** (18 services, 43 endpoints, 187 tests, contracts & topics) — not the tiny identity/billing/notifications demo. Public-safe example data only; no backend secrets.
 
 ## What you are looking at
 

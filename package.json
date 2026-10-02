@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Spiritual Platform — Verse Network Galaxy Graph (interactive 3D architecture / mutation-coverage visualization)",
+  "description": "Spiritual Platform \u2014 Verse Network Galaxy Graph (interactive 3D architecture / mutation-coverage visualization)",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -11,20 +11,24 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "3d-force-graph": "^1.79.0",
+    "3d-force-graph": "1.73.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "three": "^0.169.0"
+    "three": "0.160.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
-    "@types/three": "^0.169.0",
+    "@types/three": "0.160.0",
     "@vitejs/plugin-react": "^4.3.4",
     "typescript": "^5.5.0",
     "vite": "^5.4.10"
   },
   "engines": {
     "node": ">=20"
+  },
+  "overrides": {
+    "three": "0.160.0",
+    "three-render-objects": "1.29.5"
   }
 }
