@@ -8,6 +8,10 @@ export interface GraphData {
   links: GraphLink[];
 }
 
+export class GraphIntegrityError extends Error {
+  override name = "GraphIntegrityError";
+}
+
 const TOPIC_COLOR = "#54c1ff";
 const DIRECT_BOND_COLOR = "#f8d77a";
 
@@ -35,6 +39,9 @@ export function buildGraph(dataset?: GalaxyGraphDataset): GraphData {
   endpoints.forEach((ep) => (epTests[ep.id.replace("ep:", "")] = []));
   testsInput.forEach((t) =>
     t.endpoints.forEach((key) => {
+      if (!Object.prototype.hasOwnProperty.call(epTests, key)) {
+        throw new GraphIntegrityError(`unresolved link target ep:${key}`);
+      }
       if (epTests[key]) {
         epTests[key].push({ id: t.id, name: t.name, http: !!t.http, svc: t.svc });
       }
@@ -199,5 +206,14 @@ export function buildGraph(dataset?: GalaxyGraphDataset): GraphData {
     l.cross = !!nodeSvc[l.source] && !!nodeSvc[l.target] && nodeSvc[l.source] !== nodeSvc[l.target];
   });
 
+  const ids = new Set<string>();
+  for (const node of nodes) {
+    if (ids.has(node.id)) throw new GraphIntegrityError(`duplicate node id ${node.id}`);
+    ids.add(node.id);
+  }
+  for (const link of links) {
+    if (!ids.has(link.source)) throw new GraphIntegrityError(`unresolved link source ${link.source}`);
+    if (!ids.has(link.target)) throw new GraphIntegrityError(`unresolved link target ${link.target}`);
+  }
   return { nodes, links };
 }

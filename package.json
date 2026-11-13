@@ -6,6 +6,8 @@
   "description": "Spiritual Platform \u2014 Verse Network Galaxy Graph (interactive 3D architecture / mutation-coverage visualization)",
   "scripts": {
     "dev": "vite",
+    "test": "node --loader ./tests/resolve.mjs --test tests/*.test.ts",
+    "test:graph": "npm test",
     "build": "vite build",
     "preview": "vite preview",
     "typecheck": "tsc -p tsconfig.json --noEmit"
