@@ -3,14 +3,15 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Spiritual Platform \u2014 Verse Network Galaxy Graph (interactive 3D architecture / mutation-coverage visualization)",
+  "description": "Spiritual Platform — Verse Network Galaxy Graph (interactive 3D architecture / mutation-coverage visualization)",
   "scripts": {
     "dev": "vite",
     "test": "node --loader ./tests/resolve.mjs --test tests/*.test.ts",
     "test:graph": "npm test",
     "build": "vite build",
     "preview": "vite preview",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test:render": "PLAYWRIGHT_BROWSERS_PATH=0 playwright test"
   },
   "dependencies": {
     "3d-force-graph": "1.73.4",
@@ -19,6 +20,7 @@
     "three": "0.160.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.65.0",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
     "@types/three": "0.160.0",
