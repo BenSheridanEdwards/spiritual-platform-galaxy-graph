@@ -197,6 +197,9 @@ export default function GalaxyGraph({ dataset, className }: GalaxyGraphProps) {
 
     Graph.cameraPosition({ z: 560 });
     graphRef.current = Graph;
+    // Expose the graph for deterministic render-smoke interaction.
+    const testWindow = window as Window & { __galaxy?: ForceGraphInstance };
+    testWindow.__galaxy = Graph;
 
     const el = containerRef.current;
     const sizeToContainer = () => {
@@ -212,6 +215,7 @@ export default function GalaxyGraph({ dataset, className }: GalaxyGraphProps) {
     return () => {
       window.removeEventListener("resize", sizeToContainer);
       ro.disconnect();
+      if (testWindow.__galaxy === Graph) delete testWindow.__galaxy;
       Graph._destructor?.();
       graphRef.current = null;
       ringMeshesRef.current = [];
