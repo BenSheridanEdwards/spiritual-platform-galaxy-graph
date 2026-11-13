@@ -14,6 +14,14 @@ export interface GalaxyGraphCatalog {
 
 const FULL_SERVICES: ServiceDef[] = [
   {
+    id: "svc:audit",
+    svc: "audit",
+    file: "systems/platform/audit/audit.ts",
+    narrative: {
+      description: "Audit service omitted from the extract; required as the consumer for ct:ledger-audit."
+    }
+  },
+  {
     "id": "svc:connecting-circle",
     "svc": "connecting-circle",
     "file": "systems/deepen/connecting-circle/connecting-circle.ts"
